@@ -1,0 +1,16 @@
+{ "name"          : "jquery-easing"
+, "description"   : "Uses the built in easing capabilities added In jQuery 1.1 to offer multiple easing options"
+, "url"           : "http://gsgd.co.uk/sandbox/jquery/easing/"
+, "author"        : "George McGinley Smith"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+, "main"          : "./lib/easing.js"
+, "version"       : "1.3.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : "yui"
+}
