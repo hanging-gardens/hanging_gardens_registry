@@ -1,0 +1,16 @@
+{ "name"          : "jquery-mousewheel"
+, "description"   : "A jQuery plugin that adds cross-browser mouse wheel support."
+, "url"           : "http://plugins.jquery.com/project/mousewheel"
+, "author"        : "Brandon Aaron"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+, "main"          : "./lib/mousewheel.js"
+, "version"       : "3.0.2"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : "yui"
+}
