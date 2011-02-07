@@ -1,0 +1,17 @@
+{ "name"          : "jquery-smartresize"
+, "description"   : "debounced resize event for jQuery"
+, "url"           : "http://github.com/lrbabe/jquery-smartresize"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "Louis-Remi Babe"
+, "contributors"  : []
+, "main"          : "./lib/smartresize.js"
+, "version"       : "1.0.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}
