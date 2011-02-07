@@ -1,7 +1,5 @@
-var jQuery   = require('jquery')
-,   location = require('browser/location')
-,   window   = require('browser/window')
-,   document = require('browser/document')
+var jQuery = require('jquery')
+,   Sizzle = require('sizzle')
 ;
 
 jQuery.find = Sizzle;

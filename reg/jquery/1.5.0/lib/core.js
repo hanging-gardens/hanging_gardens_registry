@@ -2,12 +2,15 @@ var jQuery   = require('jquery')
 ,   location = require('browser/location')
 ,   window   = require('browser/window')
 ,   document = require('browser/document')
+,   navigator = require('browser/navigator')
 ;
 
-var jQuery = (function() {
-
 // Define a local copy of jQuery
-var jQuery = function( selector, context ) {
+var 
+	// A central reference to the root jQuery(document)
+	rootjQuery,
+	
+	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		return new jQuery.fn.init( selector, context, rootjQuery );
 	},
@@ -17,9 +20,6 @@ var jQuery = function( selector, context ) {
 
 	// Map over the $ in case of overwrite
 	_$ = window.$,
-
-	// A central reference to the root jQuery(document)
-	rootjQuery,
 
 	// A simple way to check for HTML strings or ID strings
 	// (both of which we optimize for)
@@ -77,7 +77,10 @@ var jQuery = function( selector, context ) {
 	indexOf = Array.prototype.indexOf,
 
 	// [[Class]] -> type pairs
-	class2type = {};
+	class2type = {},
+
+	// pre defs
+	doScrollCheck;
 
 jQuery.fn = jQuery.prototype = {
 	constructor: jQuery,
@@ -548,10 +551,10 @@ jQuery.extend({
 	parseXML: function( data , xml , tmp ) {
 
 		if ( window.DOMParser ) { // Standard
-			tmp = new DOMParser();
+			tmp = new window.DOMParser();
 			xml = tmp.parseFromString( data , "text/xml" );
 		} else { // IE
-			xml = new ActiveXObject( "Microsoft.XMLDOM" );
+			xml = new window.ActiveXObject( "Microsoft.XMLDOM" );
 			xml.async = "false";
 			xml.loadXML( data );
 		}
@@ -964,6 +967,7 @@ jQuery.extend({
 	},
 
 	sub: function() {
+	  var rootjQuerySubclass;
 		function jQuerySubclass( selector, context ) {
 			return new jQuerySubclass.fn.init( selector, context );
 		}
@@ -980,7 +984,7 @@ jQuery.extend({
 			return jQuery.fn.init.call( this, selector, context, rootjQuerySubclass );
 		};
 		jQuerySubclass.fn.init.prototype = jQuerySubclass.fn;
-		var rootjQuerySubclass = jQuerySubclass(document);
+		rootjQuerySubclass = jQuerySubclass(document);
 		return jQuerySubclass;
 	},
 
@@ -1057,7 +1061,21 @@ function doScrollCheck() {
 	jQuery.ready();
 }
 
-// Expose jQuery to the global object
-return (window.jQuery = window.$ = jQuery);
+module.exports = jQuery;
 
-})();
+require('jquery/support');
+require('jquery/data');
+require('jquery/queue');
+require('jquery/attributes');
+require('jquery/event');
+require('jquery/selector');
+require('jquery/traversing');
+require('jquery/manipulation');
+require('jquery/css');
+require('jquery/ajax');
+require('jquery/effects');
+require('jquery/offset');
+require('jquery/dimensions');
+require('jquery/ajax/xhr');
+require('jquery/ajax/script');
+require('jquery/ajax/jsonp');

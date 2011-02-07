@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 // Create innerHeight, innerWidth, outerHeight and outerWidth methods
 jQuery.each([ "Height", "Width" ], function( i, name ) {
 
@@ -69,5 +67,3 @@ jQuery.each([ "Height", "Width" ], function( i, name ) {
 	};
 
 });
-
-})( jQuery );

@@ -4,10 +4,11 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var rtable = /^t(?:able|d|h)$/i,
-	rroot = /^(?:body|html)$/i;
+	rroot = /^(?:body|html)$/i,
+
+	// pre defs
+	getWindow;
 
 if ( "getBoundingClientRect" in document.documentElement ) {
 	jQuery.fn.offset = function( options ) {
@@ -307,5 +308,3 @@ function getWindow( elem ) {
 			elem.defaultView || elem.parentWindow :
 			false;
 }
-
-})( jQuery );

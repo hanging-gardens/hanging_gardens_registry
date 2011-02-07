@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var runtil = /Until$/,
 	rparentsprev = /^(?:parents|prevUntil|prevAll)/,
 	// Note: This RegExp should be improved, or likely pulled from Sizzle
@@ -19,7 +17,11 @@ var runtil = /Until$/,
 		contents: true,
 		next: true,
 		prev: true
-	};
+	},
+
+	// pre defs
+	winnow,
+	isDisconnected;
 
 jQuery.fn.extend({
 	find: function( selector ) {
@@ -313,5 +315,3 @@ function winnow( elements, qualifier, keep ) {
 		return (jQuery.inArray( elem, qualifier ) >= 0) === keep;
 	});
 }
-
-})( jQuery );

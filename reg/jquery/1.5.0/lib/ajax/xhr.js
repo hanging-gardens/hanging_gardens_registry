@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var // Next active xhr id
 	xhrId = jQuery.now(),
 
@@ -214,5 +212,3 @@ if ( jQuery.support.ajax ) {
 		}
 	});
 }
-
-})( jQuery );

@@ -1,10 +1,6 @@
 var jQuery   = require('jquery')
-,   location = require('browser/location')
 ,   window   = require('browser/window')
-,   document = require('browser/document')
 ;
-
-(function( jQuery ) {
 
 var jsc = jQuery.now(),
 	jsre = /(\=)\?(&|$)|()\?\?()/i;
@@ -90,5 +86,3 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, dataIsString 
 		return "script";
 	}
 } );
-
-})( jQuery );

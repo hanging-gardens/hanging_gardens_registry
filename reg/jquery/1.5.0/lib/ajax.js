@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var r20 = /%20/g,
 	rbracket = /\[\]$/,
 	rCRLF = /\r?\n/g,
@@ -40,7 +38,12 @@ var r20 = /%20/g,
 	 * 2) the catchall symbol "*" can be used
 	 * 3) selection will start with transport dataType and THEN go to "*" if needed
 	 */
-	transports = {};
+	transports = {},
+	
+	// pre defs
+	ajaxHandleResponses,
+	ajaxConvert,
+	buildParams;
 
 // Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
 function addToPrefiltersOrTransports( structure ) {
@@ -120,6 +123,9 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jXH
 
 jQuery.fn.extend({
 	load: function( url, params, callback ) {
+	  var selector
+	  ;
+	  
 		if ( typeof url !== "string" && _load ) {
 			return _load.apply( this, arguments );
 
@@ -130,7 +136,7 @@ jQuery.fn.extend({
 
 		var off = url.indexOf( " " );
 		if ( off >= 0 ) {
-			var selector = url.slice( off, url.length );
+			selector = url.slice( off, url.length );
 			url = url.slice( 0, off );
 		}
 
@@ -327,6 +333,9 @@ jQuery.extend({
 
 	// Main method
 	ajax: function( url, options ) {
+    var done
+    ,   status
+    ;
 
 		// If options is not an object,
 		// we simulate pre-1.5 signature
@@ -416,7 +425,7 @@ jQuery.extend({
 		// Callback for when everything is done
 		// It is defined here because jslint complains if it is declared
 		// at the end of the function (which would be more logical and readable)
-		function done( status, statusText, responses, headers) {
+		done = function( status, statusText, responses, headers) {
 
 			// Called once
 			if ( state === 2 ) {
@@ -523,7 +532,7 @@ jQuery.extend({
 					jQuery.event.trigger( "ajaxStop" );
 				}
 			}
-		}
+		};
 
 		// Attach deferreds
 		deferred.promise( jXHR );
@@ -908,5 +917,3 @@ function ajaxConvert( s, response ) {
 	}
 	return response;
 }
-
-})( jQuery );

@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 // Install script dataType
 jQuery.ajaxSetup({
 	accepts: {
@@ -91,5 +89,3 @@ jQuery.ajaxTransport( "script", function(s) {
 		};
 	}
 } );
-
-})( jQuery );

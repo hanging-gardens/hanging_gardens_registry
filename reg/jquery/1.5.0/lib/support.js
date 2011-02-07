@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 (function() {
 
 	jQuery.support = {};
@@ -223,5 +221,4 @@ var jQuery   = require('jquery')
 
 	// release memory in IE
 	div = all = a = null;
-})();
-})( jQuery );
+}());

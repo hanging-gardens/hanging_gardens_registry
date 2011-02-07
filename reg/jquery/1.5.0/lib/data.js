@@ -4,7 +4,8 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
+var dataAttr
+;
 
 var rbrace = /^(?:\{.*\}|\[.*\])$/;
 
@@ -296,5 +297,3 @@ function dataAttr( elem, key, data ) {
 
 	return data;
 }
-
-})( jQuery );

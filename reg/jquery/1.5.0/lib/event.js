@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var rnamespaces = /\.(.*)$/,
 	rformElems = /^(?:textarea|input|select)$/i,
 	rperiod = /\./g,
@@ -14,7 +12,14 @@ var rnamespaces = /\.(.*)$/,
 	fcleanup = function( nm ) {
 		return nm.replace(rescape, "\\$&");
 	},
-	eventKey = "events";
+	eventKey = "events",
+
+	// pre defs
+	returnFalse,
+	returnTrue,
+	liveConvert,
+	trigger,
+	liveHandler;
 
 /*
  * A number of helper functions used for managing events.
@@ -883,6 +888,9 @@ function trigger( type, elem, args ) {
 // Create "bubbling" focus and blur events
 if ( document.addEventListener ) {
 	jQuery.each({ focus: "focusin", blur: "focusout" }, function( orig, fix ) {
+	  var handler
+	  ;
+	  
 		jQuery.event.special[ fix ] = {
 			setup: function() {
 				this.addEventListener( orig, handler, true );
@@ -892,11 +900,11 @@ if ( document.addEventListener ) {
 			}
 		};
 
-		function handler( e ) {
+		handler = function( e ) {
 			e = jQuery.event.fix( e );
 			e.type = fix;
 			return jQuery.event.handle.call( this, e );
-		}
+		};
 	});
 }
 
@@ -1187,5 +1195,3 @@ jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblcl
 		jQuery.attrFn[ name ] = true;
 	}
 });
-
-})( jQuery );

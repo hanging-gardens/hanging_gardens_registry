@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var elemdisplay = {},
 	rfxtypes = /^(?:toggle|show|hide)$/,
 	rfxnum = /^([+\-]=)?([\d+.\-]+)([a-z%]*)$/i,
@@ -17,7 +15,11 @@ var elemdisplay = {},
 		[ "width", "marginLeft", "marginRight", "paddingLeft", "paddingRight" ],
 		// opacity animations
 		[ "opacity" ]
-	];
+	],
+
+	// pre defs
+	genFx,
+	defaultDisplay;
 
 jQuery.fn.extend({
 	show: function( speed, easing, callback ) {
@@ -526,5 +528,3 @@ function defaultDisplay( nodeName ) {
 
 	return elemdisplay[ nodeName ];
 }
-
-})( jQuery );

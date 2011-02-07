@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var ralpha = /alpha\([^)]*\)/i,
 	ropacity = /opacity=([^)]*)/,
 	rdashAlpha = /-([a-z])/ig,
@@ -23,7 +21,10 @@ var ralpha = /alpha\([^)]*\)/i,
 
 	fcamelCase = function( all, letter ) {
 		return letter.toUpperCase();
-	};
+	},
+
+  // pre defs
+	getWH;
 
 jQuery.fn.css = function( name, value ) {
 	// Setting 'undefined' is a no-op
@@ -339,5 +340,3 @@ if ( jQuery.expr && jQuery.expr.filters ) {
 		return !jQuery.expr.filters.hidden( elem );
 	};
 }
-
-})( jQuery );

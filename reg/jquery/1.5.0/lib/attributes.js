@@ -4,8 +4,6 @@ var jQuery   = require('jquery')
 ,   document = require('browser/document')
 ;
 
-(function( jQuery ) {
-
 var rclass = /[\n\t\r]/g,
 	rspaces = /\s+/,
 	rreturn = /\r/g,
@@ -386,5 +384,3 @@ jQuery.extend({
 		return elem[ name ];
 	}
 });
-
-})( jQuery );

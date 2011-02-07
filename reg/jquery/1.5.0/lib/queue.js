@@ -1,10 +1,5 @@
 var jQuery   = require('jquery')
-,   location = require('browser/location')
-,   window   = require('browser/window')
-,   document = require('browser/document')
 ;
-
-(function( jQuery ) {
 
 jQuery.extend({
 	queue: function( elem, type, data ) {
@@ -101,5 +96,3 @@ jQuery.fn.extend({
 		return this.queue( type || "fx", [] );
 	}
 });
-
-})( jQuery );
