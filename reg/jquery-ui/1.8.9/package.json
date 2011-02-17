@@ -1,0 +1,17 @@
+{ "name"          : "jquery-ui"
+, "description"   : "jQuery UI"
+, "url"           : "http://jqueryui.com/"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "John Resig <jeresig@gmail.com>"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.8.9"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.0"
+  }
+}
