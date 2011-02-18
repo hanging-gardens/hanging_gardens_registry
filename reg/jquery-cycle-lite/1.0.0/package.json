@@ -1,0 +1,17 @@
+{ "name"          : "jquery-cycle-lite"
+, "description"   : "The jQuery Cycle Lite Plugin is a lighter version of the Cycle Plugin."
+, "url"           : "http://jquery.malsup.com/cycle/lite/"
+, "keywords"      : ["jquery", "slideshow"]
+, "author"        : "Mike Alsup"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.0"
+  }
+}
