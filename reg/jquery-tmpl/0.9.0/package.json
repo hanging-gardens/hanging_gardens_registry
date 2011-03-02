@@ -1,0 +1,17 @@
+{ "name"          : "jquery-tmpl"
+, "description"   : "jQuery Templates"
+, "url"           : "http://github.com/jquery/jquery-tmpl"
+, "keywords"      : ["util", "dom", "jquery", "templates"]
+, "author"        : "John Resig <jeresig@gmail.com>"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "0.9.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.0"
+  }
+}
