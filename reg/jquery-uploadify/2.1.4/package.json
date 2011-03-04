@@ -1,4 +1,4 @@
-{ "name"          : "uploadify"
+{ "name"          : "jquery-uploadify"
 , "description"   : "jQuery File Upload Plugin"
 , "url"           : "http://www.uploadify.com/"
 , "keywords"      : ["util", "dom", "upload"]
