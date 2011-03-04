@@ -1,0 +1,14 @@
+{ "name"          : "swfobject"
+, "description"   : "SWF Object"
+, "url"           : "http://code.google.com/p/swfobject/"
+, "keywords"      : ["util", "dom", "jquery", "templates"]
+, "author"        : "Bobby Vandersluis"
+, "contributors"  : []
+, "main"          : "./lib/swfobject.js"
+, "version"       : "2.2.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+}
