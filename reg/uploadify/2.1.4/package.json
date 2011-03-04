@@ -1,0 +1,17 @@
+{ "name"          : "uploadify"
+, "description"   : "jQuery File Upload Plugin"
+, "url"           : "http://www.uploadify.com/"
+, "keywords"      : ["util", "dom", "upload"]
+, "author"        : "Ronnie Garcia"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.5"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "2.1.4"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+}
