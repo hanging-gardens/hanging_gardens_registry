@@ -7,7 +7,7 @@
 , "main"          : "./lib/core.js"
 , "version"       : "1.8.10"
 , "lint"          : true
-, "compression"   : "yui"
+, "compression"   : false
 , "engines" :
   { "garden" : "*"
   }
