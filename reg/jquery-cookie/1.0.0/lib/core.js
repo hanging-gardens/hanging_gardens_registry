@@ -1,5 +1,5 @@
-var jQuery = require('jquery')
-,   document = require('browser/document')
+var jQuery    = require('jquery')
+,   document  = require('browser/document')
 ;
 
 jQuery.cookie = function(name, value, options) {

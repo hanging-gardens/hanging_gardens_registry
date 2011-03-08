@@ -1014,9 +1014,9 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 		//Post events to containers
 		for (i = this.containers.length - 1; i >= 0; i--){
-			if(!noPropagation) {delayedTriggers.push(function(c) { return function(event) { c._trigger("deactivate", event, this._uiHash(this)); };  }).call(this, this.containers[i]);}
+			if(!noPropagation) {delayedTriggers.push(function(c) { return function(event) { c._trigger("deactivate", event, this._uiHash(this)); };  }.call(this, this.containers[i]));}
 			if(this.containers[i].containerCache.over) {
-				delayedTriggers.push(function(c) { return function(event) { c._trigger("out", event, this._uiHash(this)); };  }).call(this, this.containers[i]);
+				delayedTriggers.push(function(c) { return function(event) { c._trigger("out", event, this._uiHash(this)); };  }.call(this, this.containers[i]));
 				this.containers[i].containerCache.over = 0;
 			}
 		}

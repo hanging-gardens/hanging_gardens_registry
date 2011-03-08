@@ -145,6 +145,20 @@ var swfobject = (function() {
 		}
 	}());
 	
+	/* Main function
+		- Will preferably execute onDomLoad, otherwise onload (as a fallback)
+	*/
+	main = function() { 
+		if (plugin) {
+			testPlayerVersion();
+		}
+		else {
+			matchVersions();
+		}
+	};
+	
+	domLoadFnArr = [main];
+	
 	function callDomLoadFunctions() {
 		if (isDomLoaded) { return; }
 		try { // test if we can really add/remove elements to/from the DOM; we don't want to fire it too early
@@ -193,18 +207,6 @@ var swfobject = (function() {
 			win.onload = fn;
 		}
 	}
-	
-	/* Main function
-		- Will preferably execute onDomLoad, otherwise onload (as a fallback)
-	*/
-	main = function() { 
-		if (plugin) {
-			testPlayerVersion();
-		}
-		else {
-			matchVersions();
-		}
-	};
 	
 	/* Detect the Flash Player version for non-Internet Explorer browsers
 		- Detecting the plug-in version via the object element is more precise than using the plugins collection item's description:
@@ -798,3 +800,5 @@ var swfobject = (function() {
 		}
 	};
 }());
+
+module.exports = swfobject;
