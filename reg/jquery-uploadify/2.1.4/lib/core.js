@@ -285,7 +285,7 @@ jQuery.extend(jQuery.fn,{
 		},
 		uploadifyCancel:function(ID) {
 			jQuery(this).each(function() {
-				document.getElementById(jQuery(this).attr('id') + 'Uploader').cancelFileUpload(ID, true, true, false);
+				document.getElementById(jQuery(this).attr('id') + 'Uploader').cancelFileUpload(ID, true, true);
 			});
 		},
 		uploadifyClearQueue:function() {
