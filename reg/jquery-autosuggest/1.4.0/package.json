@@ -12,5 +12,5 @@
   { "garden" : "*"
   }
 , "lint"         : true
-, "compression"  : "yui"
+, "compression"  : false
 }
