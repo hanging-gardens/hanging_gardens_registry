@@ -5,6 +5,7 @@ var jQuery   = require('jquery')
 ;
 
 var dataAttr
+,   isEmptyDataObject
 ;
 
 var rbrace = /^(?:\{.*\}|\[.*\])$/;
@@ -315,7 +316,7 @@ function dataAttr( elem, key, data ) {
 // TODO: This is a hack for 1.5 ONLY to allow objects with a single toJSON
 // property to be considered empty objects; this property always exists in
 // order to make sure JSON.stringify does not expose internal metadata
-function isEmptyDataObject( obj ) {
+isEmptyDataObject = function ( obj ) {
 	for ( var name in obj ) {
 		if ( name !== "toJSON" ) {
 			return false;
@@ -323,4 +324,4 @@ function isEmptyDataObject( obj ) {
 	}
 
 	return true;
-}
+};

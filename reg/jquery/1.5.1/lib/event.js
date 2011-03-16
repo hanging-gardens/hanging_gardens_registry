@@ -879,6 +879,7 @@ function trigger( type, elem, args ) {
 // Create "bubbling" focus and blur events
 if ( document.addEventListener ) {
 	jQuery.each({ focus: "focusin", blur: "focusout" }, function( orig, fix ) {
+		var handler;
 		jQuery.event.special[ fix ] = {
 			setup: function() {
 				this.addEventListener( orig, handler, true );

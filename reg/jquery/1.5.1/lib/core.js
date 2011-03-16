@@ -6,7 +6,11 @@ var jQuery   = require('jquery')
 ;
 
 // Define a local copy of jQuery
-var jQuery = function( selector, context ) {
+var 
+	// A central reference to the root jQuery(document)
+	rootjQuery,
+	
+	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		return new jQuery.fn.init( selector, context, rootjQuery );
 	},
@@ -16,9 +20,6 @@ var jQuery = function( selector, context ) {
 
 	// Map over the $ in case of overwrite
 	_$ = window.$,
-
-	// A central reference to the root jQuery(document)
-	rootjQuery,
 
 	// A simple way to check for HTML strings or ID strings
 	// (both of which we optimize for)
@@ -980,6 +981,7 @@ jQuery.extend({
 	},
 
 	sub: function() {
+		var rootjQuerySubclass;
 		function jQuerySubclass( selector, context ) {
 			return new jQuerySubclass.fn.init( selector, context );
 		}
@@ -996,7 +998,7 @@ jQuery.extend({
 			return jQuery.fn.init.call( this, selector, context, rootjQuerySubclass );
 		};
 		jQuerySubclass.fn.init.prototype = jQuerySubclass.fn;
-		var rootjQuerySubclass = jQuerySubclass(document);
+		rootjQuerySubclass = jQuerySubclass(document);
 		return jQuerySubclass;
 	},
 

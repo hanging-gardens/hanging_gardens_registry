@@ -45,17 +45,17 @@ var r20 = /%20/g,
 	 * 3) selection will start with transport dataType and THEN go to "*" if needed
 	 */
 	transports = {},
-	
-	// pre defs
-	ajaxHandleResponses,
-	ajaxConvert,
-	buildParams;
 
 	// Document location
 	ajaxLocation,
 
 	// Document location segments
-	ajaxLocParts;
+	ajaxLocParts,
+	
+	// pre defs
+	ajaxHandleResponses,
+	ajaxConvert,
+	buildParams;
 
 // #8138, IE may throw an exception when accessing
 // a field from document.location if document.domain has been set
