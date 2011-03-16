@@ -1,0 +1,16 @@
+{ "name"          : "jquery-autosuggest"
+, "description"   : "This Plug-In will auto-complete or auto-suggest completed search queries for you as you type."
+, "url"           : "http://code.drewwilson.com/entry/autosuggest-jquery-plugin"
+, "author"        : "Drew Wilson"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.5"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.4.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : false
+}
