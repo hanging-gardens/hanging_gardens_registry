@@ -10,7 +10,7 @@ test("element", function() {
 		if ( all[i].nodeType == 8 )
 			good = false;
 	ok( good, "Select all elements, no comment nodes" );
-	t( "Element Selector", "p", ["firstp","ap","sndp","en","sap","first"] );
+	t( "Element Selector", "#main p", ["firstp","ap","sndp","en","sap","first"] );
 	t( "Element Selector", "body", ["body"] );
 	t( "Element Selector", "html", ["html"] );
 	t( "Parent Element", "div p", ["firstp","ap","sndp","en","sap","first"] );
@@ -31,7 +31,7 @@ test("element", function() {
 
 	t( "Checking sort order", "h2, h1", ["qunit-header", "qunit-banner", "qunit-userAgent"] );
 	t( "Checking sort order", "h2:first, h1:first", ["qunit-header", "qunit-banner"] );
-	t( "Checking sort order", "p, p a", ["firstp", "simon1", "ap", "google", "groups", "anchor1", "mark", "sndp", "en", "yahoo", "sap", "anchor2", "simon", "first"] );
+	t( "Checking sort order", "#main p, #main p a", ["firstp", "simon1", "ap", "google", "groups", "anchor1", "mark", "sndp", "en", "yahoo", "sap", "anchor2", "simon", "first"] );
 
 	// Test Conflict ID
 	same( jQuery("#lengthtest").find("#idTest").get(), q("idTest"), "Finding element with id of ID." );
@@ -41,7 +41,7 @@ test("element", function() {
 
 if ( location.protocol != "file:" ) {
 	test("XML Document Selectors", function() {
-		expect(8);
+		expect(9);
 		stop();
 		jQuery.get("data/with_fries.xml", function(xml) {
 			equals( jQuery("foo_bar", xml).length, 1, "Element Selector with underscore" );
@@ -52,6 +52,7 @@ if ( location.protocol != "file:" ) {
 			equals( jQuery("#seite1", xml).length, 1, "Attribute selector with ID" );
 			equals( jQuery("component#seite1", xml).length, 1, "Attribute selector with ID" );
 			equals( jQuery("component", xml).filter("#seite1").length, 1, "Attribute selector filter with ID" );
+			ok( jQuery( xml.lastChild ).is( "soap\\:Envelope" ), "Check for namespaced element" );
 			start();
 		});
 	});
@@ -220,14 +221,14 @@ test("name", function() {
 test("multiple", function() {
 	expect(4);
 
-	t( "Comma Support", "h2, p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
-	t( "Comma Support", "h2 , p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
-	t( "Comma Support", "h2 , p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
-	t( "Comma Support", "h2,p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
+	t( "Comma Support", "h2, #main p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
+	t( "Comma Support", "h2 , #main p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
+	t( "Comma Support", "h2 , #main p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
+	t( "Comma Support", "h2,#main p", ["qunit-banner","qunit-userAgent","firstp","ap","sndp","en","sap","first"]);
 });
 
 test("child and adjacent", function() {
-	expect(29);
+	expect(33);
 	t( "Child", "p > a", ["simon1","google","groups","mark","yahoo","simon"] );
 	t( "Child", "p> a", ["simon1","google","groups","mark","yahoo","simon"] );
 	t( "Child", "p >a", ["simon1","google","groups","mark","yahoo","simon"] );
@@ -244,13 +245,18 @@ test("child and adjacent", function() {
 	t( "Adjacent", "p[lang=en] + p", ["sap"] );
 	t( "Adjacent", "a.GROUPS + code + a", ["mark"] );
 	t( "Comma, Child, and Adjacent", "#main a + a, code > a", ["groups","anchor1","anchor2"] );
-	t( "Element Preceded By", "p ~ div", ["foo", "moretests","tabindex-tests", "liveHandlerOrder", "siblingTest"] );
+	t( "Element Preceded By", "#main p ~ div", ["foo", "moretests","tabindex-tests", "liveHandlerOrder", "siblingTest"] );
 	t( "Element Preceded By", "#first ~ div", ["moretests","tabindex-tests", "liveHandlerOrder", "siblingTest"] );
 	t( "Element Preceded By", "#groups ~ a", ["mark"] );
 	t( "Element Preceded By", "#length ~ input", ["idTest"] );
 	t( "Element Preceded By", "#siblingfirst ~ em", ["siblingnext"] );
 	same( jQuery("#siblingfirst").find("~ em").get(), q("siblingnext"), "Element Preceded By with a context." );
 	same( jQuery("#siblingfirst").find("+ em").get(), q("siblingnext"), "Element Directly Preceded By with a context." );
+
+	equal( jQuery("#listWithTabIndex").length, 1, "Parent div for next test is found via ID (#8310)" );
+	equal( jQuery("#listWithTabIndex li:eq(2) ~ li").length, 1, "Find by general sibling combinator (#8310)" );
+	equal( jQuery("#__sizzle__").length, 0, "Make sure the temporary id assigned by sizzle is cleared out (#8310)" );
+	equal( jQuery("#listWithTabIndex").length, 1, "Parent div for previous test is still found via ID (#8310)" );
 
 	t( "Verify deep class selector", "div.blah > p > a", [] );
 
@@ -264,7 +270,7 @@ test("child and adjacent", function() {
 });
 
 test("attributes", function() {
-	expect(43);
+	expect(45);
 
 	t( "Attribute Exists", "a[title]", ["google"] );
 	t( "Attribute Exists", "*[title]", ["google"] );
@@ -329,6 +335,9 @@ test("attributes", function() {
 	t("Find escaped attribute value", "input[name=foo\\.baz]", ["attrbad1"]);
 	t("Find escaped attribute value", "input[name=foo\\[baz\\]]", ["attrbad2"]);
 
+	t("input[type=text]", "#form input[type=text]", ["text1", "text2", "hidden2", "name"]);
+	t("input[type=search]", "#form input[type=search]", ["search"]);
+
 	attrbad.remove();
 
 	//#6428
@@ -337,22 +346,22 @@ test("attributes", function() {
 	//#3279
 	var div = document.createElement("div");
 	div.innerHTML = "<div id='foo' xml:test='something'></div>";
-	
+
 	deepEqual( jQuery( "[xml\\:test]", div ).get(), [ div.firstChild ], "Finding by attribute with escaped characters." );
 });
 
 test("pseudo - child", function() {
 	expect(38);
-	t( "First Child", "p:first-child", ["firstp","sndp"] );
+	t( "First Child", "#main p:first-child", ["firstp","sndp"] );
 	t( "Last Child", "p:last-child", ["sap"] );
 	t( "Only Child", "#main a:only-child", ["simon1","anchor1","yahoo","anchor2","liveLink1","liveLink2"] );
 	t( "Empty", "ul:empty", ["firstUL"] );
-	t( "Is A Parent", "p:parent", ["firstp","ap","sndp","en","sap","first"] );
+	t( "Is A Parent", "#main p:parent", ["firstp","ap","sndp","en","sap","first"] );
 
 	t( "First Child", "p:first-child", ["firstp","sndp"] );
 	t( "Nth Child", "p:nth-child(1)", ["firstp","sndp"] );
 	t( "Nth Child With Whitespace", "p:nth-child( 1 )", ["firstp","sndp"] );
-	t( "Not Nth Child", "p:not(:nth-child(1))", ["ap","en","sap","first"] );
+	t( "Not Nth Child", "#main p:not(:nth-child(1))", ["ap","en","sap","first"] );
 
 	// Verify that the child position isn't being cached improperly
 	jQuery("p:first-child").after("<div></div>");
@@ -418,16 +427,16 @@ test("pseudo - :not", function() {
 	t( "Not - multiple", "#form option:not(:contains(Nothing),#option1b,:selected)", ["option1c", "option1d", "option2b", "option2c", "option3d", "option3e", "option4e", "option5b", "option5c"] );
 	t( "Not - recursive", "#form option:not(:not(:selected))[id^='option3']", [ "option3b", "option3c"] );
 
-	t( ":not() failing interior", "p:not(.foo)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not() failing interior", "p:not(div.foo)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not() failing interior", "p:not(p.foo)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not() failing interior", "p:not(#blargh)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not() failing interior", "p:not(div#blargh)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not() failing interior", "p:not(p#blargh)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not() failing interior", "#main p:not(.foo)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not() failing interior", "#main p:not(div.foo)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not() failing interior", "#main p:not(p.foo)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not() failing interior", "#main p:not(#blargh)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not() failing interior", "#main p:not(div#blargh)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not() failing interior", "#main p:not(p#blargh)", ["firstp","ap","sndp","en","sap","first"] );
 
-	t( ":not Multiple", "p:not(a)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not Multiple", "p:not(a, b)", ["firstp","ap","sndp","en","sap","first"] );
-	t( ":not Multiple", "p:not(a, b, div)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not Multiple", "#main p:not(a)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not Multiple", "#main p:not(a, b)", ["firstp","ap","sndp","en","sap","first"] );
+	t( ":not Multiple", "#main p:not(a, b, div)", ["firstp","ap","sndp","en","sap","first"] );
 	t( ":not Multiple", "p:not(p)", [] );
 	t( ":not Multiple", "p:not(a,p)", [] );
 	t( ":not Multiple", "p:not(p,a)", [] );
@@ -447,14 +456,14 @@ test("pseudo - :not", function() {
 
 test("pseudo - position", function() {
 	expect(25);
-	t( "nth Element", "p:nth(1)", ["ap"] );
-	t( "First Element", "p:first", ["firstp"] );
+	t( "nth Element", "#main p:nth(1)", ["ap"] );
+	t( "First Element", "#main p:first", ["firstp"] );
 	t( "Last Element", "p:last", ["first"] );
-	t( "Even Elements", "p:even", ["firstp","sndp","sap"] );
-	t( "Odd Elements", "p:odd", ["ap","en","first"] );
-	t( "Position Equals", "p:eq(1)", ["ap"] );
-	t( "Position Greater Than", "p:gt(0)", ["ap","sndp","en","sap","first"] );
-	t( "Position Less Than", "p:lt(3)", ["firstp","ap","sndp"] );
+	t( "Even Elements", "#main p:even", ["firstp","sndp","sap"] );
+	t( "Odd Elements", "#main p:odd", ["ap","en","first"] );
+	t( "Position Equals", "#main p:eq(1)", ["ap"] );
+	t( "Position Greater Than", "#main p:gt(0)", ["ap","sndp","en","sap","first"] );
+	t( "Position Less Than", "#main p:lt(3)", ["firstp","ap","sndp"] );
 
 	t( "Check position filtering", "div#nothiddendiv:eq(0)", ["nothiddendiv"] );
 	t( "Check position filtering", "div#nothiddendiv:last", ["nothiddendiv"] );
@@ -507,10 +516,19 @@ test("pseudo - form", function() {
 	t( "Form element :input", "#form :input", ["text1", "text2", "radio1", "radio2", "check1", "check2", "hidden1", "hidden2", "name", "search", "button", "area1", "select1", "select2", "select3", "select4", "select5"] );
 	t( "Form element :radio", "#form :radio", ["radio1", "radio2"] );
 	t( "Form element :checkbox", "#form :checkbox", ["check1", "check2"] );
-	t( "Form element :text", "#form :text:not(#search)", ["text1", "text2", "hidden2", "name"] );
+	t( "Form element :text", "#form :text", ["text1", "text2", "hidden2", "name"] );
 	t( "Form element :radio:checked", "#form :radio:checked", ["radio2"] );
 	t( "Form element :checkbox:checked", "#form :checkbox:checked", ["check1"] );
 	t( "Form element :radio:checked, :checkbox:checked", "#form :radio:checked, #form :checkbox:checked", ["radio2", "check1"] );
 
 	t( "Selected Option Element", "#form option:selected", ["option1a","option2d","option3b","option3c","option4b","option4c","option4d","option5a"] );
+});
+
+test("disconnected nodes", function() {
+	expect(3);
+	var $opt = jQuery( '<option value="whipit">Whip It</option>' ).appendTo("#main").detach();
+	equal( $opt.val(), "whipit", "option value" );
+	equal( $opt.is(":selected"), false, "unselected option" );
+	$opt.attr("selected", true);
+	equal( $opt.is(":selected"), true, "selected option" );
 });
