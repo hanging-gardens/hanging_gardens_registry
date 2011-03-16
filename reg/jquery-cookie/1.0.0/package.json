@@ -1,0 +1,16 @@
+{ "name"          : "jquery-cookie"
+, "description"   : "jQuery cookie plugin"
+, "url"           : ""
+, "author"        : ""
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery"            : ">= 1.5"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : "yui"
+}

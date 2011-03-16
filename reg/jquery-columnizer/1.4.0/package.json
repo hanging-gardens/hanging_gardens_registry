@@ -1,0 +1,15 @@
+{ "name"          : "jQuery Columnizer"
+, "description"   : "Columns for browser which don't support css columns"
+, "url"           : "http://welcome.totheinter.net/columnizer-jquery-plugin/"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "Adam Wulf"
+, "contributors"  : []
+, "dependencies"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.4.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+}
