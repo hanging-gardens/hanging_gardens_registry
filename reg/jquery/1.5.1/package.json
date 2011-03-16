@@ -12,6 +12,6 @@
   { "garden" : "*"
   }
 , "dependencies"  : 
-  { "sizzle" : ">= 1.5.0"
+  { "sizzle" : ">= 1.5.1"
   }
 }
