@@ -1,4 +1,4 @@
-{ "name"          : "jQuery Columnizer"
+{ "name"          : "jquery-columnizer"
 , "description"   : "Columns for browser which don't support css columns"
 , "url"           : "http://welcome.totheinter.net/columnizer-jquery-plugin/"
 , "keywords"      : ["util", "dom", "jquery"]
