@@ -2,7 +2,7 @@ var $     = require("jquery")
 ;
 
 /*
- * jQuery reFormer
+ * jQuery ajaxform
  *
  * Version: 1.0.0
  * Author: Yves Van Broekhoven
@@ -36,6 +36,6 @@ _handleError = function(){
   console.log("something went wrong baby");
 };
 
-$.fn.reformer = function(){
+$.fn.ajaxform = function(){
   return this.live("submit", _submit);
 };

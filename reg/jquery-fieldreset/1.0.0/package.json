@@ -1,4 +1,4 @@
-{ "name"          : "jquery-resetfield"
+{ "name"          : "jquery-fieldreset"
 , "description"   : "Clears value of a field if it equals the default value on focus, resets field if empty on focus lost"
 , "url"           : "http://github.com/yvesvanbroekhoven"
 , "author"        : "Yves Van Broekhoven"
@@ -6,7 +6,7 @@
 , "dependencies"  : 
   { "jquery" : ">= 1.4.4"
   }
-, "main"          : "./lib/index.js"
+, "main"          : "./lib/core.js"
 , "version"       : "1.0.0"
 , "engines" :
   { "garden" : "*"

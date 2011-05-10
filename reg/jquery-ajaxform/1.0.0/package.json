@@ -1,6 +1,6 @@
-{ "name"          : "jquery-reformer"
+{ "name"          : "jquery-ajaxform"
 , "description"   : "Simple ajax form submit which replaces the whole form with returned form"
-, "url"           : "https://github.com/yvesvanbroekhoven/jquery-reformer"
+, "url"           : "https://github.com/yvesvanbroekhoven/jquery-ajaxform"
 , "keywords"      : ["util", "dom", "jquery", "ajax"]
 , "author"        : "Yves Van Broekhoven"
 , "contributors"  : ["Simon Menke"]
