@@ -23,7 +23,6 @@ _submit = function(event){
     data:     ctx.serialize(),
     success:  function(data){
       _handleResponse(data, ctx);
-      _successClb(ctx);
     },
     error:    _handleError
   });
@@ -32,16 +31,19 @@ _submit = function(event){
 _handleResponse = function(data, ctx){
   var form = $("#" + ctx[0].id, data).first();
   ctx.replaceWith(form);
+  ctx.unbind("submit");
+  ctx = form;
+  _successClb(data, ctx);
 };
 
 _handleError = function(){
   console.log("something went wrong baby");
 };
 
-_successClb = function(ctx){
+_successClb = function(data, ctx){
   var opts = $.fn.ajaxform.options;
   if ($.isFunction(opts.successClb)) {
-    opts.successClb.call();
+    opts.successClb.call(this, data, ctx);
   }
 };
 
