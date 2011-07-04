@@ -1,0 +1,17 @@
+{ "name"          : "jquery-zoetrope"
+, "description"   : "zoetroping animations"
+, "url"           : "https://github.com/yvesvanbroekhoven/jquery-zoetrope"
+, "keywords"      : ["util", "dom", "jquery", "animations"]
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}
