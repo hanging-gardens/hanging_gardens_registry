@@ -1,0 +1,17 @@
+{ "name"          : "jquery-select-masque"
+, "description"   : "Hiding a selectbox and only showing a span with the selected text. Replace back on click"
+, "url"           : ""
+, "keywords"      : ["util", "dom", "jquery", "select"]
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.6.1"
+  }
+}

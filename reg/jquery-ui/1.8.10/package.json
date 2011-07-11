@@ -12,6 +12,6 @@
   { "garden" : "*"
   }
 , "dependencies"  : 
-  { "jquery" : ">= 1.5.0"
+  { "jquery" : ">= 1.6.1"
   }
 }
