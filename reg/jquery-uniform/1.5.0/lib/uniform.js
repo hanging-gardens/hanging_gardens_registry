@@ -168,7 +168,7 @@ var jQuery = require('jquery'),
       var divTag = $('<div />'),
           spanTag = $('<span />');
       
-      if($el.css("display") != "none" && options.autoHide){
+      if($el.css("display") == "none" && options.autoHide){
         divTag.hide();
       }
 
@@ -242,7 +242,7 @@ var jQuery = require('jquery'),
       var divTag = $('<div />'),
           spanTag = $('<span />');
       
-      if($el.css("display") != "none" && options.autoHide){
+      if($el.css("display") == "none" && options.autoHide){
         divTag.hide();
       }
       
@@ -316,7 +316,7 @@ var jQuery = require('jquery'),
       var divTag = $('<div />'),
           spanTag = $('<span />');
           
-      if($el.css("display") != "none" && options.autoHide){
+      if($el.css("display") == "none" && options.autoHide){
         divTag.hide();
       }
 
@@ -395,7 +395,7 @@ var jQuery = require('jquery'),
           filenameTag = $('<span>'+options.fileDefaultText+'</span>'),
           btnTag = $('<span>'+options.fileBtnText+'</span>');
       
-      if($el.css("display") != "none" && options.autoHide){
+      if($el.css("display") == "none" && options.autoHide){
         divTag.hide();
       }
 
