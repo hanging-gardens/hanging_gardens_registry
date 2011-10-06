@@ -35,6 +35,11 @@
       this.form_field_jq = $(this.form_field);
       this.is_multiple = this.form_field.multiple;
       this.is_rtl = this.form_field_jq.hasClass("chzn-rtl");
+      if (this.form_field_jq.hasClass("chzn-sortable") && $.isFunction(($("")).sortable)) {
+        this.is_sortable = true;
+      } else {
+        this.is_sortable = false;
+      }
       this.default_text_default = this.form_field.multiple ? "Select Some Options" : "Select an Option";
       this.set_up_html();
       this.register_observers();
@@ -59,7 +64,7 @@
       this.default_text = this.form_field_jq.data('placeholder') ? this.form_field_jq.data('placeholder') : this.default_text_default;
       container_div = $("<div />", {
         id: this.container_id,
-        "class": "chzn-container " + (this.is_rtl ? 'chzn-rtl' : ''),
+        "class": "chzn-container " + (this.is_rtl ? 'chzn-rtl' : '') + " " + (this.is_sortable ? 'chzn-sortable' : ''),
         style: 'width: ' + this.f_width + 'px;'
       });
       if (this.is_multiple) {
@@ -130,9 +135,14 @@
         this.search_choices.click(__bind(function(evt) {
           return this.choices_click(evt);
         }, this));
-        return this.search_field.focus(__bind(function(evt) {
+        this.search_field.focus(__bind(function(evt) {
           return this.input_focus(evt);
         }, this));
+        if (this.is_sortable) {
+          return ($(".chzn-choices")).sortable({
+            items: '.search-choice'
+          });
+        }
       } else {
         return this.selected_item.focus(__bind(function(evt) {
           return this.activate_field(evt);
@@ -281,7 +291,7 @@
         if (option.img) {
           bg_img = 'style="background-image: url(' + option.img + ');"';
         }
-        return '<li id="' + option.dom_id + '" class="' + classes.join(' ') + '" ' + bg_img + ' ">' + option.html + '</li>';
+        return '<li id="' + option.dom_id + '" class="' + classes.join(' ') + '" ' + bg_img + '>' + option.html + '</li>';
       } else {
         return "";
       }
@@ -402,7 +412,7 @@
       var choice_id, link;
       choice_id = this.container_id + "_c_" + item.array_index;
       this.choices += 1;
-      this.search_container.before('<li class="search-choice" id="' + choice_id + '"><span>' + item.html + '</span><a href="javascript:void(0)" class="search-choice-close" rel="' + item.array_index + '"></a></li>');
+      this.search_container.before('<li class="search-choice" id="' + choice_id + '"><span class="handle"></span> <span>' + item.html + '</span><a href="javascript:void(0)" class="search-choice-close" rel="' + item.array_index + '"></a></li>');
       link = $('#' + choice_id).find("a").first();
       return link.click(__bind(function(evt) {
         return this.choice_destroy_link_click(evt);
