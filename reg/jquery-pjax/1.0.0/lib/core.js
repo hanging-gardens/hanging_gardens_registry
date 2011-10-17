@@ -1,8 +1,12 @@
+var $ = require("jquery")
+,   window = require("browser/window")
+,   document = require("browser/document")
+;
+
 // jquery.pjax.js
 // copyright chris wanstrath
 // https://github.com/defunkt/jquery-pjax
 
-(function($){
 
 // When called on a link, fetches the href with ajax into the
 // container specified as the first parameter or with the data-pjax
@@ -261,4 +265,3 @@ if ( !$.support.pjax ) {
   $.fn.pjax = function() { return this }
 }
 
-})(jQuery);
