@@ -3,12 +3,14 @@
 , "url"           : "http://www.eyecon.ro/colorpicker/"
 , "keywords"      : ["dom", "jquery", "form", "color"]
 , "author"        : "Stefan Petre"
-, "dependencies"  : ["jquery"]
 , "main"          : "./lib/core.js"
 , "version"       : "1.0.0"
 , "lint"          : false
 , "compression"   : "yui"
 , "engines" :
   { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
   }
 }

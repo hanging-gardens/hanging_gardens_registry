@@ -4,7 +4,10 @@
 , "keywords"      : ["util", "dom", "jquery", "ajax"]
 , "author"        : "Yves Van Broekhoven"
 , "contributors"  : ["Simon Menke"]
-, "dependencies"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}
 , "main"          : "./lib/core.js"
 , "version"       : "1.0.0"
 , "lint"          : true
