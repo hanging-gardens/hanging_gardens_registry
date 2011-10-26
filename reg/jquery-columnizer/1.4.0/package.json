@@ -7,7 +7,6 @@
 , "dependencies"  : 
   { "jquery" : ">= 1.4.4"
   }
-}
 , "main"          : "./lib/core.js"
 , "version"       : "1.4.0"
 , "lint"          : true
