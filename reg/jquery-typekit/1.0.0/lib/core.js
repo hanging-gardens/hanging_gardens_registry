@@ -20,21 +20,27 @@ exports.load = function(id, options){
         window.Typekit.load({
           loading: function(){
             // Javascript to execute when fonts start loading
-            $("html").addClass("typekit-loading");
+            $("html")
+              .removeClass("typekit-active typekit-inactive")
+              .addClass("typekit-loading");
             if ($.isFunction(options.onLoading)) {
               options.onLoading();
             }
           },
           active: function(){
             // Javascript to execute when fonts become active
-            $("html").addClass("typekit-active");
+            $("html")
+              .removeClass("typekit-loading typekit-inactive ")
+              .addClass("typekit-active");
             if ($.isFunction(options.onActive)) {
               options.onActive();
             }
           },
           inactive: function(){
             // Javascript to execute when fonts become inactive
-            $("html").addClass("typekit-inactive");
+            $("html")
+              .removeClass("typekit-loading typekit-active")
+              .addClass("typekit-inactive");
             if ($.isFunction(options.onInactive)) {
               options.onInactive();
             }
