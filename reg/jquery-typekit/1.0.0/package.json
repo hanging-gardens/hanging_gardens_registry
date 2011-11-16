@@ -1,0 +1,16 @@
+{ "name"          : "jquery-typekit"
+, "description"   : "Async Typekit kit loader"
+, "url"           : "https://github.com/yvesvanbroekhoven/jquery-typekit"
+, "keywords"      : ["dom", "jquery", "fonts"]
+, "author"        : "Yves Van Broekhoven"
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}
