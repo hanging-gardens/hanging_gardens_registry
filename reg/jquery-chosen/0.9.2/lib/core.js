@@ -68,7 +68,7 @@
         style: 'width: ' + this.f_width + 'px;'
       });
       if (this.is_multiple) {
-        container_div.html('<ul class="chzn-choices"><li class="search-field"><input type="text" value="' + this.default_text + '" class="default" autocomplete="off" style="width:25px;" /></li></ul><div class="chzn-drop" style="left:-9000px;"><ul class="chzn-results"></ul></div>');
+        container_div.html('<ul class="chzn-choices"><li class="search-field"><input type="text" value="' + this.default_text + '" class="default" autocomplete="off" /></li></ul><div class="chzn-drop" style="left:-9000px;"><ul class="chzn-results"></ul></div>');
       } else {
         container_div.html('<a href="javascript:void(0)" class="chzn-single"><span>' + this.default_text + '</span><div><b></b></div></a><div class="chzn-drop" style="left:-9000px;"><div class="chzn-search"><input type="text" autocomplete="off" /></div><ul class="chzn-results"></ul></div>');
       }
@@ -98,6 +98,7 @@
         });
       }
       this.results_build();
+      this.container.append('<input type="hidden" name="' + $(this.form_field).attr("name") + '" value="" />');
       return this.set_tab_index();
     };
     Chosen.prototype.register_observers = function() {
@@ -176,15 +177,15 @@
       if (!this.pending_destroy_click) {
         if (!this.active_field) {
           if (this.is_multiple) {
-            this.search_field.val("");
+            //this.search_field.val("");
           }
           $(document).click(this.click_test_action);
-          this.results_show();
+          //this.results_show();
         } else if (!this.is_multiple && evt && ($(evt.target) === this.selected_item || $(evt.target).parents("a.chzn-single").length)) {
           evt.preventDefault();
           this.results_toggle();
         }
-        return this.activate_field();
+        return
       } else {
         return this.pending_destroy_click = false;
       }
@@ -198,6 +199,8 @@
     Chosen.prototype.input_focus = function(evt) {
       if (!this.active_field) {
         return setTimeout((__bind(function() {
+          this.results_show();
+          this.activate_field();
           return this.container_mousedown();
         }, this)), 50);
       }
@@ -738,9 +741,9 @@
         if (w > this.f_width - 10) {
           w = this.f_width - 10;
         }
-        this.search_field.css({
-          'width': w + 'px'
-        });
+        //this.search_field.css({
+        //  'width': w + 'px'
+        //});
         dd_top = this.container.height();
         return this.dropdown.css({
           "top": dd_top + "px"
