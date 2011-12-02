@@ -1,7 +1,7 @@
 {
   "name": "hanging_gardens_registry",
   "description": "A registry of non official (Hanging Gardens compatible) JS library distributions",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "homepage": "https://github.com/fd/hanging_gardens.js",
   "author": "Simon Menke <simon.menke@gmail.com> (https://github.com/fd)",
   "main": "./lib/hanging_gardens_registry.js",
