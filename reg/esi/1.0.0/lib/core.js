@@ -34,11 +34,11 @@ _replace = function(){
   var $this = $(this)
   ,   data  = $.ajaxSettings.data
   ;
-  
+
   $.ajaxSettings.data = null;
-  
+
   index += 1;
-  
+
   $.ajax(
   { url: $this.attr('src')
   , dataType: 'jsonp'
@@ -51,7 +51,7 @@ _replace = function(){
       _ready();
     }
   });
-  
+
   $.ajaxSettings.data = data;
 };
 
