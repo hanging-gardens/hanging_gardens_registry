@@ -1,0 +1,16 @@
+{ "name"          : "jquery-navigationstate"
+, "description"   : "Set navigation active states"
+, "url"           : "https://github.com/hanging-gardens/hanging_gardens_registry"
+, "author"        : "Simon Menke"
+, "contributors"  : ["Yves Van Broekhoven"]
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : "yui"
+}
