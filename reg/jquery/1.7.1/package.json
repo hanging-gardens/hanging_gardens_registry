@@ -1,0 +1,14 @@
+{ "name"          : "jquery"
+, "description"   : "jQuery: The Write Less, Do More, JavaScript Library"
+, "url"           : "http://jquery.com"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "John Resig <jeresig@gmail.com>"
+, "contributors"  : []
+, "main"          : "./lib/jquery-full.js"
+, "version"       : "1.7.1"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+}
