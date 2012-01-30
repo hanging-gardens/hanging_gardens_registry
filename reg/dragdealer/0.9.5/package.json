@@ -1,0 +1,13 @@
+{ "name"          : "dragdealer"
+, "description"   : "Dragdealer is a drag-based JavaScript component that embraces endless front-end solutions."
+, "url"           : "http://code.ovidiu.ch/dragdealer/"
+, "author"        : ""
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "0.9.5"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
