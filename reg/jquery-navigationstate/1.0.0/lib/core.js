@@ -17,7 +17,7 @@ Created at: 2012-01-26
 
 
 @use
-  $('body).navactive();
+  $('body).navigationstate();
   
 */
 
