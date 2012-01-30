@@ -11,6 +11,6 @@
 , "engines" :
   { "garden" : "*"
   }
-, "lint"         : true
+, "lint"         : false
 , "compression"  : "yui"
 }
