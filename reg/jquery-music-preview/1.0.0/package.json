@@ -1,0 +1,16 @@
+{ "name"          : "jquery-music-preview"
+, "description"   : "Seeks for a mp3 preview of a song"
+, "url"           : "https://github.com/yvesvanbroekhoven/jquery-music-preview"
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.1"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}

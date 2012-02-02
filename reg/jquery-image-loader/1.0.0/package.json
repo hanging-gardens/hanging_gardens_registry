@@ -1,10 +1,10 @@
-{ "name"          : "jquery-cookie"
-, "description"   : "jQuery cookie plugin"
+{ "name"          : "jquery-image-loader"
+, "description"   : "Load images async on the moment you need them the most"
 , "url"           : ""
-, "author"        : ""
+, "author"        : "Yves Van Broekhoven"
 , "contributors"  : []
 , "dependencies"  : 
-  { "jquery"            : ">= 1.6.1"
+  { "jquery" : ">= 1.5.1"
   }
 , "main"          : "./lib/core.js"
 , "version"       : "1.0.0"

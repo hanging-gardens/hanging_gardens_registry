@@ -1,5 +1,5 @@
 { "name"          : "jquery-cycle"
-, "description"   : "The jQuery Cycle Plugin creates easy slideshows."
+, "description"   : "The jQuery Cycle Plugin is a slideshow plugin."
 , "url"           : "http://jquery.malsup.com/cycle"
 , "keywords"      : ["jquery", "slideshow"]
 , "author"        : "Mike Alsup"
