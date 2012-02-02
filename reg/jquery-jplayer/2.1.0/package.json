@@ -1,0 +1,16 @@
+{ "name"          : "jquery-jplayer"
+, "description"   : "Cross device/browser audio player"
+, "url"           : "http://jplayer.org/"
+, "author"        : "Mark J Panaghiston"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "2.1.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
