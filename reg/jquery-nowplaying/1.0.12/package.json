@@ -1,0 +1,16 @@
+{ "name"          : "jquery-nowplaying"
+, "description"   : "Load images async on the moment you need them the most"
+, "url"           : "http://labs.engageinteractive.co.uk/lastfm/"
+, "author"        : "Kyle Hotchkiss"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.1"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.12"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
