@@ -1,0 +1,17 @@
+{ "name"          : "jquery-cycle"
+, "description"   : "The jQuery Cycle Plugin is a slideshow plugin."
+, "url"           : "http://jquery.malsup.com/cycle"
+, "keywords"      : ["jquery", "slideshow"]
+, "author"        : "Mike Alsup"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "2.9999.3"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.0"
+  }
+}
