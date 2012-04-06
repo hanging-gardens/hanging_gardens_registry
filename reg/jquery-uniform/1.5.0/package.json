@@ -1,0 +1,16 @@
+{ "name"          : "jquery-uniform"
+, "description"   : "Sexy forms with jQuery"
+, "url"           : "http://uniformjs.com/"
+, "author"        : "Josh Pyles"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery"            : ">= 1.4.4"
+  }
+, "main"          : "./lib/uniform.js"
+, "version"       : "1.5.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : "yui"
+}

@@ -1,0 +1,17 @@
+{ "name"          : "jquery-touchswipe"
+, "description"   : "Swipe events"
+, "url"           : "http://labs.skinkers.com/touchSwipe/"
+, "keywords"      : ["util", "dom", "jquery", "events"]
+, "author"        : "Matt Bryson"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.2.3"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}

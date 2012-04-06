@@ -1,0 +1,18 @@
+{ "name"          : "jquery-masonry"
+, "description"   : "Masonry"
+, "url"           : "http://desandro.com/resources/jquery-masonry"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "David DeSandro"
+, "contributors"  : []
+, "main"          : "./lib/masonry.js"
+, "version"       : "2.1.3"
+, "lint"          : true
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery"             : ">= 1.4.4"
+  , "jquery-smartresize" : ">= 1.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+{ "name"          : "jquery-notice"
+, "description"   : "Add a quick notice to your viewport, attached to an element"
+, "url"           : "https://github.com/yvesvanbroekhoven/jquery-notice"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}

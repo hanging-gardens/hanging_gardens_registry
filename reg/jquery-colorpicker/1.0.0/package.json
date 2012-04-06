@@ -1,0 +1,16 @@
+{ "name"          : "jquery-colorpicker"
+, "description"   : "A simple component to select color in the same way you select color in Adobe Photoshop"
+, "url"           : "http://www.eyecon.ro/colorpicker/"
+, "keywords"      : ["dom", "jquery", "form", "color"]
+, "author"        : "Stefan Petre"
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.4.4"
+  }
+}

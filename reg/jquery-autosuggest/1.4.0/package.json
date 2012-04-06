@@ -4,7 +4,7 @@
 , "author"        : "Drew Wilson"
 , "contributors"  : []
 , "dependencies"  : 
-  { "jquery" : ">= 1.5"
+  { "jquery" : ">= 1.6.1"
   }
 , "main"          : "./lib/core.js"
 , "version"       : "1.4.0"

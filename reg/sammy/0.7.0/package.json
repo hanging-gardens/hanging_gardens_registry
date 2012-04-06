@@ -1,0 +1,16 @@
+{ "name"          : "sammy"
+, "description"   : "A small web framework with class"
+, "url"           : "http://sammyjs.org/"
+, "author"        : "Aaron Quint"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery"            : ">= 1.4.4"
+  }
+, "main"          : "./lib/sammy.js"
+, "version"       : "0.7.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : true
+, "compression"  : "yui"
+}

@@ -5,7 +5,7 @@
 , "author"        : "Ronnie Garcia"
 , "contributors"  : []
 , "dependencies"  : 
-  { "jquery" : ">= 1.5"
+  { "jquery" : ">= 1.6.1"
   }
 , "main"          : "./lib/core.js"
 , "version"       : "2.1.4"
