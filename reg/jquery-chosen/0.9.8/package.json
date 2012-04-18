@@ -1,0 +1,15 @@
+{ "name"          : "jquery-chosen"
+, "description"   : "Chosen, a Select Box Enhancer for jQuery"
+, "url"           : "https://github.com/harvesthq/chosen"
+, "keywords"      : ["dom", "jquery", "form"]
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : ["Simon Menke"]
+, "dependencies"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "0.9.8"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+}
