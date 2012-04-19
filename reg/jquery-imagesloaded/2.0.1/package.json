@@ -1,4 +1,4 @@
-{ "name"          : "jquery-masonry"
+{ "name"          : "jquery-imagesloaded"
 , "description"   : "Masonry"
 , "url"           : "http://github.com/desandro/imagesloaded"
 , "keywords"      : ["util", "dom", "jquery"]

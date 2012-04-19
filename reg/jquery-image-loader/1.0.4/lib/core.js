@@ -1,7 +1,7 @@
 /*
 Author: Yves Van Broekhoven
 Created: 2011-12-01
-Version: 1.0.0
+Version: 1.0.4
 
 How to use:
 
