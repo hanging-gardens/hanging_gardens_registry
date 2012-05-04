@@ -1,0 +1,12 @@
+{ "name"          : "json2"
+, "description"   : "JSON2"
+, "url"           : "http://www.JSON.org/js.html"
+, "author"        : "The man himself"
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}

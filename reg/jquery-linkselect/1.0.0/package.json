@@ -1,0 +1,17 @@
+{ "name"          : "jquery-linkselect"
+, "description"   : "jQuery Linkselect"
+, "url"           : ""
+, "keywords"      : ["util", "dom", "jquery", "mobile"]
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.6.1"
+  }
+}

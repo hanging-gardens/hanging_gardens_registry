@@ -1,0 +1,16 @@
+{ "name"          : "jquery-image-loader"
+, "description"   : "Load images async on the moment you need them the most"
+, "url"           : ""
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "dependencies"  : 
+  { "jquery" : ">= 1.5.1"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.1"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}

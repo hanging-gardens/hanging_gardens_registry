@@ -1,0 +1,17 @@
+{ "name"          : "jquery-imagesloaded"
+, "description"   : "Masonry"
+, "url"           : "http://github.com/desandro/imagesloaded"
+, "keywords"      : ["util", "dom", "jquery"]
+, "author"        : "Paul Irish"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "2.0.1"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery"             : ">= 1.4.4"
+  }
+}
