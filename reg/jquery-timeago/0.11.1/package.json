@@ -1,0 +1,17 @@
+{ "name"          : "jquery-timeago"
+, "description"   : "jQuery Time Ago"
+, "url"           : ""
+, "keywords"      : ["util", "dom", "jquery", "date"]
+, "author"        : "Ryan McGeary"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "0.11.1"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  : 
+  { "jquery" : ">= 1.6.1"
+  }
+}

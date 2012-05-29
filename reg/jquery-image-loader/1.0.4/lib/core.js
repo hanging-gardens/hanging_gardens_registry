@@ -1,7 +1,7 @@
 /*
 Author: Yves Van Broekhoven
 Created: 2011-12-01
-Version: 1.0.2
+Version: 1.0.4
 
 How to use:
 
@@ -18,6 +18,7 @@ $('.wrapper').loadImages({
   imgLoadedClb: function(){ ... }
 , allLoadedClb: function(){ ... }
 , imgErrorClb:  function(){ ... }
+, noImgClb:     function(){ ... }
 });
 
 */
@@ -52,7 +53,7 @@ $.fn.loadImages = function(options){
 
 
 $.fn.loadImages.defaults = {
-  imgLoadedClb: false /* callback when a image is loaded. 
+  imgLoadedClb: false /* callback when an image is loaded. 
                          this [object] loaded image
                          @params processed [integer] processed images
                          @params total  [integer] total images
@@ -60,16 +61,22 @@ $.fn.loadImages.defaults = {
 , allLoadedClb: false /* callback when all images are loaded. 
                          this [object] wrapper element 
                       */
-, imgErrorClb: false  /* callback when an image fails loading
+, imgErrorClb: false  /* callback when an image fails loading.
                          this [object] failed image
+                      */
+, noImgClb: false     /* callback when there are no images to be loaded, 
+                         or all are failed.
+                         this [object] wrapper element
                       */
 };
 
 
 _load = function(options) {
   var dfd       = $.Deferred()
-  ,   $this     = $(this)
+  ,   _this     = this
+  ,   $this     = $(_this)
   ,   processed = 0
+  ,   failed    = 0
   ,   $images   = $this.find('img[data-src]')
   ,   clb
   ;
@@ -79,30 +86,52 @@ _load = function(options) {
    * If there are no images, exit immediately
    */
   if ($images.length < 1) {
-    return dfd.resolve();
+    if ($.isFunction(options.noImgClb)) {
+      options.noImgClb.call(_this);
+    }
+    return dfd.reject();
   }
   
   
   /*
    * Callback after load/error
-   * this = img obj
+   * this = <img>
    */
   clb = function(status){
     processed += 1;
         
-    // image success callback
+    // Image success callback
     if (status == 'success' && $.isFunction(options.imgLoadedClb)) {
-     options.imgLoadedClb.call(this, processed, $images.length);
+      options.imgLoadedClb.call(this, processed, $images.length);
     }
     
-    // image error callback
-    if (status == 'error' && $.isFunction(options.imgErrorClb)) {
-     options.imgErrorClb.call(this);
+    // Image error callback
+    if (status == 'error') {
+      failed += 1;
+      
+      // Unbind load event to avoid triggering our load function again 
+      // when you for example add a fallback image
+      $(this).unbind('load');
+        
+      if ($.isFunction(options.imgErrorClb)) {
+        options.imgErrorClb.call(this);
+      }
     }
     
-    // if all images are processed, resolve
+    // If all images are processed, resolve
     if (processed == $images.length) {
-      dfd.resolve();
+
+      // If failed count equals image count, then reject
+      // otherwise resolve
+      if (failed == $images.length) {
+        if ($.isFunction(options.noImgClb)) {
+          options.noImgClb.call(_this);
+        }
+        dfd.reject();
+      } else {
+        dfd.resolve();
+      }
+      
     }
     
   };
@@ -118,11 +147,10 @@ _load = function(options) {
       .load(function(){
         clb.call($img[0], 'success');
       })
-      .attr('src', $img.data('src'))
       .error(function(errorObj){
-        console.log('[' + errorObj.type + ']' + ' Can\'t load ' + $img.data('src'));
         clb.call($img[0], 'error');
-      });
+      })
+      .attr('src', $img.data('src'));
     
   });
   
