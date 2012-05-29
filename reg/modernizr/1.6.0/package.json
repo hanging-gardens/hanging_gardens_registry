@@ -2,7 +2,7 @@
 , "description"   : "Modernizr is a script that detects native CSS3 and HTML5 features available in the current UA and provides an object containing all features with a true/false value, depending on whether the UA has native support for it or not. Modernizr will also add classes to the <html> element of the page, one for each feature it detects. If the UA supports it, a class like \"cssgradients\" will be added. If not, the class name will be \"no-cssgradients\". This allows for simple if-conditionals in your CSS, giving you fine control over the look & feel of your website."
 , "url"           : "http://www.modernizr.com"
 , "author"        : "Faruk Ates"
-, "contributors"  : ['Paul Irish', 'Ben Alman']
+, "contributors"  : ["Paul Irish", "Ben Alman"]
 , "main"          : "./lib/modernizr.js"
 , "version"       : "1.6.0"
 , "engines" :
