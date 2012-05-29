@@ -255,7 +255,8 @@ $.extend( $.ui, {
 				return;
 			}
 
-			for ( var i = 0; i < set.length; i++ ) {
+      var i;
+			for (  i = 0; i < set.length; i++ ) {
 				if ( instance.options[ set[ i ][ 0 ] ] ) {
 					set[ i ][ 1 ].apply( instance.element, args );
 				}
