@@ -15,7 +15,8 @@ var $ = require("jquery")
 if ( $.cleanData ) {
 	var _cleanData = $.cleanData;
 	$.cleanData = function( elems ) {
-		for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
+    var i, elem;
+		for (  i = 0; (elem = elems[i]) != null; i++ ) {
 			$( elem ).triggerHandler( "remove" );
 		}
 		_cleanData( elems );

@@ -246,7 +246,8 @@ $.widget( "ui.tabs", {
 		}
 
 		// disable tabs
-		for ( var i = 0, li; ( li = this.lis[ i ] ); i++ ) {
+    var i, li;
+		for ( i = 0; ( li = this.lis[ i ] ); i++ ) {
 			$( li )[ $.inArray( i, o.disabled ) != -1 &&
 				// TODO: use .toggleClass()
 				!$( li ).hasClass( "ui-tabs-selected" ) ? "addClass" : "removeClass" ]( "ui-state-disabled" );
@@ -724,7 +725,7 @@ $.extend( $.ui.tabs.prototype, {
 				t = o.selected;
 				self.select( ++t < self.anchors.length ? t : 0 );
 			}, ms );
-			
+
 			if ( e ) {
 				e.stopPropagation();
 			}
