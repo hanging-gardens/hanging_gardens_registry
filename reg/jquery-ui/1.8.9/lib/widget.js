@@ -15,7 +15,8 @@ var $ = require("jquery")
 if ( $.cleanData ) {
 	var _cleanData = $.cleanData;
 	$.cleanData = function( elems ) {
-		for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
+    var i, elem;
+		for (  i = 0; (elem = elems[i]) != null; i++ ) {
 			$( elem ).triggerHandler( "remove" );
 		}
 		_cleanData( elems );
@@ -247,7 +248,8 @@ $.Widget.prototype = {
 		// this would happen if we could call $.event.fix instead of $.Event
 		// but we don't have a way to force an event to be fixed multiple times
 		if ( event.originalEvent ) {
-			for ( var i = $.event.props.length, prop; i; ) {
+      var i, prop;
+			for (  i = $.event.props.length; i; ) {
 				prop = $.event.props[ --i ];
 				event[ prop ] = event.originalEvent[ prop ];
 			}
