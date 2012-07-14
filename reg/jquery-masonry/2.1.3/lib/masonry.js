@@ -100,10 +100,10 @@ $.Mason.prototype = {
       .addClass('masonry-brick');
     return $bricks;
   },
-  
+
   // sets up widget
   _create : function( options ) {
-    
+
     this.options = $.extend( true, {}, $.Mason.settings, options );
     this.styleQueue = [];
 
@@ -115,7 +115,8 @@ $.Mason.prototype = {
     };
     // get other styles that will be overwritten
     var containerStyle = this.options.containerStyle;
-    for ( var prop in containerStyle ) {
+    var prop;
+    for ( prop in containerStyle ) {
       this.originalStyle[ prop ] = elemStyle[ prop ] || '';
     }
 
@@ -127,7 +128,7 @@ $.Mason.prototype = {
       x: parseInt( this.element.css( 'padding-' + this.horizontalDirection ), 10 ),
       y: parseInt( this.element.css( 'padding-top' ), 10 )
     };
-    
+
     this.isFluid = this.options.columnWidth && typeof this.options.columnWidth === 'function';
 
     // add masonry class first time around
@@ -135,10 +136,10 @@ $.Mason.prototype = {
     setTimeout( function() {
       instance.element.addClass('masonry');
     }, 0 );
-    
+
     // bind resize method
     if ( this.options.isResizable ) {
-      $(window).bind( 'smartresize.masonry', function() { 
+      $(window).bind( 'smartresize.masonry', function() {
         instance.resize();
       });
     }
@@ -161,9 +162,9 @@ $.Mason.prototype = {
     // signature: $('#foo').bar({ cool:false });
     if ( $.isPlainObject( key ) ){
       this.options = $.extend(true, this.options, key);
-    } 
+    }
   },
-  
+
   // ====================== General Layout ======================
 
   // used on collection of atoms (should be filtered, and sorted before )
@@ -171,10 +172,11 @@ $.Mason.prototype = {
   layout : function( $bricks, callback ) {
 
     // place each brick
-    for (var i=0, len = $bricks.length; i < len; i++) {
+    var i, len;
+    for (i=0, len = $bricks.length; i < len; i++) {
       this._placeBrick( $bricks[i] );
     }
-    
+
     // set the size of the container
     var containerSize = {};
     containerSize.height = Math.max.apply( Math, this.colYs );
@@ -214,10 +216,10 @@ $.Mason.prototype = {
     if ( callback ) {
       callback.call( $bricks );
     }
-    
+
     this.isLaidOut = true;
   },
-  
+
   // calculates number of columns
   // i.e. this.columnWidth = 200
   _getColumns : function() {
@@ -272,9 +274,10 @@ $.Mason.prototype = {
     // get the minimum Y value from the columns
     var minimumY = Math.min.apply( Math, groupY ),
         shortCol = 0;
-    
+
     // Find index of short column, the first from the left
-    for (var i=0, len = groupY.length; i < len; i++) {
+    var i, len;
+    for (i=0, len = groupY.length; i < len; i++) {
       if ( groupY[i] === minimumY ) {
         shortCol = i;
         break;
@@ -297,8 +300,8 @@ $.Mason.prototype = {
     }
 
   },
-  
-  
+
+
   resize: function() {
     var prevColCount = this.cols;
     // get updated colCount
@@ -308,8 +311,8 @@ $.Mason.prototype = {
       this._reLayout();
     }
   },
-  
-  
+
+
   _reLayout : function( callback ) {
     // reset columns
     var i = this.cols;
@@ -320,20 +323,20 @@ $.Mason.prototype = {
     // apply layout logic to all bricks
     this.layout( this.$bricks, callback );
   },
-  
+
   // ====================== Convenience methods ======================
-  
+
   // goes through all children again and gets bricks in proper order
   reloadItems : function() {
     this.$bricks = this._getBricks( this.element.children() );
   },
-  
-  
+
+
   reload : function( callback ) {
     this.reloadItems();
     this._init( callback );
   },
-  
+
 
   // convienence method for working with Infinite Scroll
   appended : function( $content, isAnimatedFromBottom, callback ) {
@@ -348,20 +351,20 @@ $.Mason.prototype = {
       this._appended( $content, callback );
     }
   },
-  
+
   _appended : function( $content, callback ) {
     var $newBricks = this._getBricks( $content );
     // add new bricks to brick pool
     this.$bricks = this.$bricks.add( $newBricks );
     this.layout( $newBricks, callback );
   },
-  
+
   // removes elements from Masonry widget
   remove : function( $content ) {
     this.$bricks = this.$bricks.not( $content );
     $content.remove();
   },
-  
+
   // destroys widget, returns elements and container back (close) to original style
   destroy : function() {
 
@@ -372,10 +375,11 @@ $.Mason.prototype = {
         this.style.top = '';
         this.style.left = '';
       });
-    
+
     // re-apply saved container styles
     var elemStyle = this.element[0].style;
-    for ( var prop in this.originalStyle ) {
+    var prop;
+    for ( prop in this.originalStyle ) {
       elemStyle[ prop ] = this.originalStyle[ prop ];
     }
 
@@ -383,11 +387,11 @@ $.Mason.prototype = {
       .unbind('.masonry')
       .removeClass('masonry')
       .removeData('masonry');
-    
+
     $(window).unbind('.masonry');
 
   }
-  
+
 };
 
 
@@ -462,7 +466,7 @@ var logError = function( message ) {
 // leverages data method to either create or return $.Mason constructor
 // A bit from jQuery UI
 //   https://github.com/jquery/jquery-ui/blob/master/ui/jquery.ui.widget.js
-// A bit from jcarousel 
+// A bit from jcarousel
 //   https://github.com/jsor/jcarousel/blob/master/lib/jquery.jcarousel.js
 
 $.fn.masonry = function( options ) {

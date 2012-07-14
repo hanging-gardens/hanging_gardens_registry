@@ -1,0 +1,16 @@
+{ "name"          : "bootstrap-tooltip"
+, "description"   : "Show basic tooltips"
+, "url"           : "http://twitter.github.com/bootstrap/javascript.html#tooltips"
+, "author"        : "Twitter"
+, "contributors"  : []
+, "dependencies"  :
+  { "jquery" : ">= 1.7.0"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "2.0.4"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
