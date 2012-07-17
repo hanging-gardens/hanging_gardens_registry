@@ -1,0 +1,16 @@
+{ "name"          : "jquery-imagefit"
+, "description"   : "Fit an image tied & centered in his container. "
+, "url"           : ""
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "dependencies"  :
+  { "jquery" : ">= 1.5.1"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "0.0.2"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
