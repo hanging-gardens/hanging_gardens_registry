@@ -52,8 +52,17 @@ $.fn.fontesizer = function(options){
    */
   _step = function(options){
     var current_step = localStorage.getItem('fontesizer-step')
-    ,   next_step    = current_step ? (current_step + 1) : 1
+    ,   next_step
     ;
+
+    // Initialize?
+    if (!current_step) {
+      next_step = 1
+    } else if (options.initialize) {
+      next_step = current_step;
+    } else {
+      next_step = +current_step + 1
+    }
 
     // If next step bigger then max steps,
     // back to step 1
@@ -85,7 +94,9 @@ $.fn.fontesizer = function(options){
       ,   $this = $(_this)
       ;
 
-      _step.call(this, options);
+      _step.call(this, $.extend({
+        initialize: true
+      }, options));
 
       $this.on('click.fontesizer', function(){
         _step.call(this, options);
