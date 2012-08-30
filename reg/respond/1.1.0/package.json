@@ -1,0 +1,14 @@
+{ "name"          : "respond"
+, "description"   : "Respond polyfill for IE < 9"
+, "url"           : "https://github.com/scottjehl/Respond/"
+, "keywords"      : ["util", "dom", "mediaqueries"]
+, "author"        : ""
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.1.0"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+}

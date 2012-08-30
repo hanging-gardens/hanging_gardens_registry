@@ -4,12 +4,12 @@
 , "keywords"      : ["util", "dom", "jquery"]
 , "author"        : "Adam Wulf"
 , "contributors"  : []
-, "dependencies"  : 
+, "dependencies"  :
   { "jquery" : ">= 1.4.4"
   }
 , "main"          : "./lib/core.js"
 , "version"       : "1.4.0"
-, "lint"          : true
+, "lint"          : false
 , "compression"   : "yui"
 , "engines" :
   { "garden" : "*"
