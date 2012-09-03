@@ -1,0 +1,16 @@
+{ "name"          : "jquery-backgroundsize"
+, "description"   : "Polyfill for css background-size"
+, "url"           : "https://github.com/louisremi/jquery.backgroundSize.js"
+, "author"        : "Louis Remi"
+, "contributors"  : []
+, "dependencies"  :
+  { "jquery" : ">= 1.7.0"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.0"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
