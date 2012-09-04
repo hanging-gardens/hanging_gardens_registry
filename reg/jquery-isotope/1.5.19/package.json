@@ -1,0 +1,16 @@
+{ "name"          : "jquery-isotope"
+, "description"   : "Isotope: An exquisite jQuery plugin for magical layouts"
+, "url"           : "http://isotope.metafizzy.co/"
+, "author"        : "David DeSandro"
+, "contributors"  : []
+, "dependencies"  :
+  { "jquery" : ">= 1.7.0"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "1.5.19"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
