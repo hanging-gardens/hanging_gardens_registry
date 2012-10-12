@@ -1,0 +1,16 @@
+{ "name"          : "jquery-transit"
+, "description"   : "Super-smooth CSS3 transformations and transitions for jQuery"
+, "url"           : "https://github.com/rstacruz/jquery.transit"
+, "author"        : "rstacruz"
+, "contributors"  : []
+, "dependencies"  :
+  { "jquery" : ">= 1"
+  }
+, "main"          : "./lib/core.js"
+, "version"       : "0.1.4"
+, "engines" :
+  { "garden" : "*"
+  }
+, "lint"         : false
+, "compression"  : "yui"
+}
