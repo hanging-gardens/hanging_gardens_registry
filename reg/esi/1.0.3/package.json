@@ -1,0 +1,17 @@
+{ "name"          : "esi"
+, "description"   : "ESI fallback in ajax"
+, "url"           : ""
+, "keywords"      : ["jquery", "ajax", "includes", "esi"]
+, "author"        : "Simon Menke"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.3"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  :
+  { "jquery" : ">= 1.5.0"
+  }
+}
