@@ -1,0 +1,17 @@
+{ "name"          : "jquery-tweets"
+, "description"   : "pull latest tweets"
+, "url"           : "https://github.com/yvesvanbroekhoven/jquery-tweets"
+, "keywords"      : ["util", "dom", "jquery", "twitter"]
+, "author"        : "Yves Van Broekhoven"
+, "contributors"  : []
+, "main"          : "./lib/core.js"
+, "version"       : "1.0.3"
+, "lint"          : false
+, "compression"   : "yui"
+, "engines" :
+  { "garden" : "*"
+  }
+, "dependencies"  :
+  { "jquery" : ">= 1.7.0"
+  }
+}
