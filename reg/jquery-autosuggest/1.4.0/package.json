@@ -3,7 +3,7 @@
 , "url"           : "http://code.drewwilson.com/entry/autosuggest-jquery-plugin"
 , "author"        : "Drew Wilson"
 , "contributors"  : []
-, "dependencies"  : 
+, "dependencies"  :
   { "jquery" : ">= 1.6.1"
   }
 , "main"          : "./lib/core.js"
@@ -11,6 +11,6 @@
 , "engines" :
   { "garden" : "*"
   }
-, "lint"         : true
+, "lint"         : false
 , "compression"  : false
 }

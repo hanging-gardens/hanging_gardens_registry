@@ -7,7 +7,7 @@
 , "dependencies"  : []
 , "main"          : "./lib/core.js"
 , "version"       : "2.2.0"
-, "lint"          : true
+, "lint"          : false
 , "compression"   : false
 , "engines" :
   { "garden" : "*"
