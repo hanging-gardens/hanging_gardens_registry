@@ -5,7 +5,7 @@
 , "author"        : "John Resig <jeresig@gmail.com>"
 , "contributors"  : []
 , "main"          : "./lib/jquery-full.js"
-, "version"       : "1.8.2"
+, "version"       : "1.8.3"
 , "lint"          : false
 , "compression"   : "yui"
 , "engines" :
