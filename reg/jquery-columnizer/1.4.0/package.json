@@ -10,7 +10,7 @@
 , "main"          : "./lib/core.js"
 , "version"       : "1.4.0"
 , "lint"          : false
-, "compression"   : "yui"
+, "compression"   : false
 , "engines" :
   { "garden" : "*"
   }
